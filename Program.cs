@@ -13,61 +13,22 @@ void Main()
     MooseSays("I really am enthusiastic");
 
     // Ask a question
-    CanadaQuestion();
-    EnthusiasticQuestion();
-    LoveCSharpQuestion();
-    SecretQuestion();
+    Question("Am I a moose?", "That is true", "Actually I am a moose");
+    Question("Are moose your favorite animals?", "That is the correct answer", "I am offended");
+    Question("Are you a moose", "What are you stupid?", "I bet you wish you were one");
+
 }
 
-void CanadaQuestion()
+void Question(string question, string yes, string no)
 {
-    bool isTrue = MooseAsks("Is Canada real?");
+    bool isTrue = MooseAsks(question);
     if (isTrue)
     {
-        MooseSays("Really? It seems very unlikely.");
+        MooseSays(yes);
     }
     else
     {
-        MooseSays("I  K N E W  I T !!!");
-    }
-}
-
-void EnthusiasticQuestion()
-{
-    bool isEnthusiastic = MooseAsks("Are you enthusiastic?");
-    if (isEnthusiastic)
-    {
-        MooseSays("Yay!");
-    }
-    else
-    {
-        MooseSays("You should try it!");
-    }
-}
-
-void LoveCSharpQuestion()
-{
-    bool doesLoveCSharp = MooseAsks("Do you love C# yet?");
-    if (doesLoveCSharp)
-    {
-        MooseSays("Good job sucking up to your instructor!");
-    }
-    else
-    {
-        MooseSays("You will...oh, yes, you will...");
-    }
-}
-
-void SecretQuestion()
-{
-    bool wantsSecret = MooseAsks("Do you want to know a secret?");
-    if (wantsSecret)
-    {
-        MooseSays("ME TOO!!!! I love secrets...tell me one!");
-    }
-    else
-    {
-        MooseSays("Oh, no...secrets are the best, I love to share them!");
+        MooseSays(no);
     }
 }
 
@@ -105,16 +66,16 @@ void MooseSays(string message)
 
 bool MooseAsks(string question)
 {
-    Console.Write($"{question} (Y/N): ");
+    Console.Write($"{question} (Yes/No): ");
     string answer = Console.ReadLine().ToLower();
 
-    while (answer != "y" && answer != "n")
+    while (answer != "yes" && answer != "no")
     {
-        Console.Write($"{question} (Y/N): ");
+        Console.Write($"{question} (Yes/No): ");
         answer = Console.ReadLine().ToLower();
     }
 
-    if (answer == "y")
+    if (answer == "yes")
     {
         return true;
     }
